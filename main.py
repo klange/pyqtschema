@@ -249,7 +249,7 @@ class MainWindow(QtGui.QWidget):
         #  Open
         #  Save
         #  --
-        #  Quit
+        #  Close
 
         self.menu = QtGui.QMenuBar(self)
         self.file_menu = self.menu.addMenu("&File")
@@ -260,7 +260,7 @@ class MainWindow(QtGui.QWidget):
         _action_save = QtGui.QAction("&Save", self)
         _action_save.triggered.connect(self._handle_save)
 
-        _action_quit = QtGui.QAction("&Quit", self)
+        _action_quit = QtGui.QAction("&Close", self)
         _action_quit.triggered.connect(self._handle_quit)
 
         self.file_menu.addAction(_action_open)
