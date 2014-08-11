@@ -48,9 +48,9 @@ class JsonObject(QtGui.QGroupBox):
         self.properties = {}
 
         if "properties" not in schema:
-            label = QtGui.QLabel("Invalid object description.", self)
+            label = QtGui.QLabel("Invalid object description (missing properties)", self)
             label.setStyleSheet("QLabel { color: red; }")
-            vbox.addWidget(label)
+            self.vbox.addWidget(label)
         else:
             for k, v in schema['properties'].iteritems():
                 widget = create_thing(k, v)
