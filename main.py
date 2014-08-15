@@ -300,15 +300,17 @@ class MainWindow(QtGui.QWidget):
     def _handle_open(self):
         # Open JSON Schema
         schema = QtGui.QFileDialog.getOpenFileName(self, 'Open Schema', filter="JSON Schema (*.schema *.json)")
-        self.process_schema(schema)
+        if schema:
+            self.process_schema(schema)
 
     def _handle_save(self):
         # Save JSON output
         import json
         obj = self.content_region.widget().to_json_object()
         outfile = QtGui.QFileDialog.getSaveFileName(self, 'Save JSON', filter="JSON (*.json)")
-        with open(outfile, 'w') as f:
-            f.write(json.dumps(obj))
+        if outfile:
+            with open(outfile, 'w') as f:
+                f.write(json.dumps(obj))
 
     def _handle_quit(self):
         # TODO: Check if saved?
